@@ -1,10 +1,10 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-export default function HomeScreen() {
+export default function page() {
   return (
     <View style={styles.container}>
-      <Text>page</Text>
+      <Text>bookmark page</Text>
     </View>
   );
 }

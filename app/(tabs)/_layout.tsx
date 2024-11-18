@@ -2,10 +2,23 @@ import { Tabs } from "expo-router";
 import React from "react";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { Ionicons } from "@expo/vector-icons";
+import { Colors } from "@/constants/Colors";
+import { View } from "react-native";
 
 export default function TabLayout() {
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: useColorScheme() === "dark" ? "#151718" : "#fff",
+          padding: 0,
+          borderTopWidth: 0,
+        },
+        tabBarShowLabel: false,
+        tabBarActiveTintColor:
+          useColorScheme() === "dark" ? Colors.dark.tint : Colors.light.tint,
+      }}
+    >
       {/* Index Screen with Home Icon */}
       <Tabs.Screen
         name="index"
@@ -30,8 +43,16 @@ export default function TabLayout() {
       <Tabs.Screen
         name="category"
         options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="grid" size={24} color={color} />
+          tabBarIcon: () => (
+            <View
+              style={{
+                backgroundColor: Colors.light.text,
+                borderRadius: 5,
+                padding: 5,
+              }}
+            >
+              <Ionicons name="grid" size={24} color={Colors.light.background} />
+            </View>
           ),
         }}
       />

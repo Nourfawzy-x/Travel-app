@@ -31,27 +31,31 @@ export default function TabLayout() {
 
       {/* Bookmark Screen */}
       <Tabs.Screen
-        name="bookmark"
+        name="camera"
         options={{
           tabBarIcon: ({ color }) => (
-            <Ionicons name="bookmark" size={24} color={color} />
+            <Ionicons name="camera" size={24} color={color} />
           ),
         }}
       />
 
       {/* Category Screen */}
       <Tabs.Screen
-        name="category"
+        name="location"
         options={{
           tabBarIcon: () => (
             <View
               style={{
                 backgroundColor: Colors.light.text,
                 borderRadius: 5,
-                padding: 5,
+                padding: 2,
               }}
             >
-              <Ionicons name="grid" size={24} color={Colors.light.background} />
+              <Ionicons
+                name="location"
+                size={24}
+                color={Colors.light.background}
+              />
             </View>
           ),
         }}

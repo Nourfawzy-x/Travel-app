@@ -9,8 +9,9 @@ type ListingProps = {
 };
 
 export default function Listing({ listing }: ListingProps) {
+  console.log("App has loaded");
+
   const renderItems = ({ item }: { item: ListingItem }) => {
-    console.log(item);
     return (
       <View style={styles.itemContainer}>
         <Image source={{ uri: item.image }} style={styles.itemImage} />
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
   itemContainer: {
     marginRight: 10, // Use marginRight for horizontal spacing between items
     padding: 10,
-    backgroundColor: "#f5f",
+    backgroundColor: "#f5f5f5",
     borderRadius: 8,
     borderWidth: 1,
     borderColor: "#ddd",

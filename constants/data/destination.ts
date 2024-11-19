@@ -2,7 +2,7 @@ export const destinationList = [
   {
     id: 1,
     name: "Tropical Paradise Resort",
-    image: "https://images.unsplash.com/photo-1534250353773-643295d4ea84", // Tropical resort image
+    image: "https://example.com/place1.jpg", // Place 1 Image URL
     description:
       "A beautiful resort located in the heart of the Caribbean, offering pristine beaches and luxury amenities.",
     rating: 4.5,
@@ -13,7 +13,7 @@ export const destinationList = [
   {
     id: 2,
     name: "Alpine Retreat Lodge",
-    image: "https://images.unsplash.com/photo-1546826665-1cde0fdbb148", // Alpine lodge image
+    image: "https://example.com/place3.jpg", // Alpine lodge image
     description:
       "A cozy lodge nestled in the Swiss Alps with breathtaking views of snow-capped mountains and peaceful surroundings.",
     rating: 4.8,

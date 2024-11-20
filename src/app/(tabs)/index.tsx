@@ -10,10 +10,10 @@ import {
   TextInput,
 } from "react-native";
 import { useHeaderHeight } from "@react-navigation/elements";
-import { Colors } from "@/constants/Colors";
-import CategoryButton from "@/components/CategoryButton";
-import Listing from "@/components/Listing";
-import { destinationList } from "@/constants/data/destination";
+import { Colors } from "@/src/constants/Colors";
+import CategoryButton from "@/src/components/CategoryButton";
+import Listing from "@/src/components/Listing";
+import { destinationList } from "@/src/constants/data/destination";
 
 export default function HomeScreen() {
   const headerHeight = useHeaderHeight();

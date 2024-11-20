@@ -1,8 +1,8 @@
-import { Colors } from "@/constants/Colors";
-import { ListingItem } from "@/types/ListingItem";
 import { FontAwesome5, Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { View, Text, FlatList, Image, StyleSheet } from "react-native";
+import { ListingItem } from "../types/ListingItem";
+import { Colors } from "../constants/Colors";
 
 type ListingProps = {
   listing: ListingItem[];

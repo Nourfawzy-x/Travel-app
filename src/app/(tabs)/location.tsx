@@ -3,7 +3,7 @@ import { Text, View, StyleSheet } from "react-native";
 import * as Location from "expo-location";
 import MapView, { Marker } from "react-native-maps";
 
-export default function Page(): JSX.Element {
+export default function LocationScreen(): JSX.Element {
   const [location, setLocation] = useState<Location.LocationObject | null>(
     null
   );

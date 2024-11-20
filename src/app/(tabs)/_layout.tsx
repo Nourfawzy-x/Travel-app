@@ -24,8 +24,12 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="home" size={24} color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? "home-sharp" : "home-outline"}
+              size={24}
+              color={color}
+            />
           ),
         }}
       />
@@ -59,6 +63,7 @@ export default function TabLayout() {
               />
             </View>
           ),
+          headerLeft: () => <></>,
         }}
       />
 
@@ -69,6 +74,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <Ionicons name="person" size={24} color={color} />
           ),
+          title: "Nourhan Fawzy",
         }}
       />
     </Tabs>

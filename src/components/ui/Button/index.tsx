@@ -3,7 +3,7 @@ import { Pressable, View, Text, StyleSheet } from "react-native";
 
 type ButtonProps = {
   label: string;
-  onClick: () => void;
+  onPress?: () => void;
   backgroundColor?: string;
   textColor?: string;
   padding?: number;
@@ -12,7 +12,7 @@ type ButtonProps = {
 
 export default function Button({
   label,
-  onClick,
+  onPress,
   backgroundColor = "#6200ea",
   textColor = "#fff",
   padding = 10,
@@ -25,7 +25,7 @@ export default function Button({
     <View style={styles.container}>
       <Pressable
         style={[styles.button, { backgroundColor, padding, borderRadius }]}
-        onPress={onClick} // Using the passed onClick function
+        onPress={onPress} // Using the passed onClick function
       >
         <Text style={[styles.text, { color: textColor }]}>{label}</Text>
       </Pressable>

@@ -3,8 +3,8 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 
 import { View } from "react-native";
-import { useColorScheme } from "@/src/hooks/useColorScheme.web";
-import { Colors } from "@/src/constants/Colors";
+import { useColorScheme } from "@/hooks/useColorScheme.web";
+import { Colors } from "@/constants/Colors";
 
 export default function TabLayout() {
   return (
@@ -75,6 +75,14 @@ export default function TabLayout() {
             <Ionicons name="person" size={24} color={color} />
           ),
           title: "Nourhan Fawzy",
+        }}
+      />
+      <Tabs.Screen
+        name="about"
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="school" size={24} color={color} />
+          ),
         }}
       />
     </Tabs>

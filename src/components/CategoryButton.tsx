@@ -1,4 +1,4 @@
-import { destinationCategories } from "@/src/constants/data/categories";
+import { destinationCategories } from "@/constants/data/categories";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
 import {

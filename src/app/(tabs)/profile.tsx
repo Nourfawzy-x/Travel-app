@@ -1,7 +1,8 @@
-import Button from "@/src/components/ui/Button";
+import Button from "@/components/ui/Button";
 import React, { useState } from "react";
 import { Text, View, StyleSheet, Image } from "react-native";
 import * as ImagePicker from "expo-image-picker";
+import EmojiPicker from "@/components/EmojiPicker";
 
 export default function ProfileScreen() {
   // ----------------------------------------------------------------------------------------------------
@@ -12,6 +13,8 @@ export default function ProfileScreen() {
   const [selectedImage, setSelectedImage] = useState<String | undefined>(
     undefined
   );
+  const [showButtonOption, setShowButtonOption] = useState<boolean>(false);
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
   // ----------------------------------------------------------------------------------------------------
   // MARK: Functions
@@ -24,10 +27,24 @@ export default function ProfileScreen() {
 
     if (!result.canceled) {
       console.log(result);
+      setShowButtonOption(true);
       setSelectedImage(result.assets[0].uri);
     } else {
       console.log("Image picker cancelled");
     }
+  }
+
+  function resetHandler() {
+    setSelectedImage(undefined);
+    setShowButtonOption(false);
+  }
+
+  function onAddSticker() {
+    setIsModalVisible(true);
+  }
+
+  function isModalClose() {
+    setIsModalVisible(false);
   }
 
   // ----------------------------------------------------------------------------------------------------
@@ -40,17 +57,37 @@ export default function ProfileScreen() {
         source={selectedImage ? { uri: selectedImage } : profileImage}
         style={{ width: 200, height: 200 }}
       />
-      <Button
-        label="open image"
-        onClick={() => {
-          alert("Image clicked");
-        }}
-        backgroundColor="red"
-      />
-      <Button
-        label="choose image"
-        onClick={imagePicker}
-        backgroundColor="green"
+      {showButtonOption ? (
+        <View>
+          {" "}
+          <Button label="reset" onPress={resetHandler} backgroundColor="gray" />
+          <Button
+            label="add image"
+            onPress={onAddSticker}
+            backgroundColor="yellow"
+          />
+        </View>
+      ) : (
+        <View>
+          <Button
+            label="open image"
+            onPress={() => {
+              alert("Image clicked");
+            }}
+            backgroundColor="red"
+          />
+          <Button
+            label="choose image"
+            onPress={imagePicker}
+            backgroundColor="green"
+          />
+        </View>
+      )}
+      <EmojiPicker
+        isVisible={isModalVisible}
+        onClose={isModalClose}
+        title="Choose an Emoji"
+        content={"😀"}
       />
     </View>
   );

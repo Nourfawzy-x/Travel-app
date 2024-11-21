@@ -1,6 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Stack } from "expo-router";
-import React from "react";
 import {
   Text,
   View,
@@ -10,16 +9,51 @@ import {
   TextInput,
 } from "react-native";
 import { useHeaderHeight } from "@react-navigation/elements";
-import { Colors } from "@/src/constants/Colors";
-import CategoryButton from "@/src/components/CategoryButton";
-import Listing from "@/src/components/Listing";
-import { destinationList } from "@/src/constants/data/destination";
+import { Colors } from "@/constants/Colors";
+import CategoryButton from "@/components/CategoryButton";
+import Listing from "@/components/Listing";
+import { destinationList } from "@/constants/data/destination";
 
-export default function HomeScreen() {
+export default function HomeScreen(): JSX.Element {
   const headerHeight = useHeaderHeight();
 
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      paddingHorizontal: 20,
+    },
+    headingTxt: {
+      fontSize: 28,
+      fontWeight: "800",
+      marginTop: 10,
+    },
+    searchSectionWrapper: {
+      flexDirection: "row",
+      alignItems: "center",
+      marginTop: 20,
+    },
+    searchBar: {
+      flexDirection: "row",
+      flex: 3,
+      alignItems: "center",
+      padding: 16,
+      borderRadius: 10,
+      marginRight: 10,
+      backgroundColor: "#f5f5f5",
+      shadowColor: "#171717",
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.5,
+      shadowRadius: 3,
+    },
+    filterBtn: {
+      backgroundColor: Colors.light.text,
+      padding: 12,
+      borderRadius: 10,
+    },
+  });
+
   return (
-    <>
+    <View>
       <Stack.Screen
         options={{
           headerTitle: "",
@@ -80,41 +114,6 @@ export default function HomeScreen() {
 
         <Listing listing={destinationList} />
       </View>
-    </>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 20,
-  },
-  headingTxt: {
-    fontSize: 28,
-    fontWeight: "800",
-    marginTop: 10,
-  },
-  searchSectionWrapper: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginTop: 20,
-  },
-  searchBar: {
-    flexDirection: "row",
-    flex: 3,
-    alignItems: "center",
-    padding: 16,
-    borderRadius: 10,
-    marginRight: 10,
-    backgroundColor: "#f5f5f5",
-    shadowColor: "#171717",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.5,
-    shadowRadius: 3,
-  },
-  filterBtn: {
-    backgroundColor: Colors.light.text,
-    padding: 12,
-    borderRadius: 10,
-  },
-});

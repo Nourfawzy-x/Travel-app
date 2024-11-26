@@ -1,12 +1,10 @@
 import Button from "@/components/ui/Button";
 import React, { useState } from "react";
 import { Text, View, StyleSheet, Image } from "react-native";
-import favicon from "../../assets/images/favicon.png";
 import { TextInput } from "react-native-gesture-handler";
 
 export default function AboutScreen() {
   const [onLayout, setOnLayout] = useState<object>({});
-  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   function handleLayout(event: any) {
     setOnLayout(event.nativeEvent.layout);
@@ -24,14 +22,6 @@ export default function AboutScreen() {
         onPress={() => {
           console.log("hello");
         }}
-      />
-      <Image
-        source={favicon}
-        style={{ width: 100, height: 100 }}
-        resizeMode="repeat"
-        onLoad={() => setIsLoading(true)}
-        blurRadius={1}
-        accessibilityLabel="favicon"
       />
       <TextInput
         placeholder="enter your name please"

@@ -46,8 +46,22 @@ export default function Listing({ listing }: ListingProps) {
     <FlatList
       data={listing}
       renderItem={renderItems}
-      horizontal
-      keyExtractor={(item) => item.id.toString()} // Use `id` as key
+      keyExtractor={(item) => item.id.toString()}
+      ListHeaderComponent={
+        <View style={{ width: 20 }}>
+          <Text>Listing</Text>
+        </View>
+      }
+      ListFooterComponent={
+        <View>
+          <Text>Footer</Text>
+        </View>
+      }
+      ItemSeparatorComponent={() => (
+        <View>
+          <Text> center here </Text>
+        </View>
+      )}
     />
   );
 }
